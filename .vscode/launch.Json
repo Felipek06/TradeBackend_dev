@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Launch Go app with Fiber",
+        "type": "go",
+        "request": "launch",
+        "mode": "auto",
+        "program": "${workspaceFolder}/main.go",  // Ou o arquivo principal da sua aplicação
+        "env": {
+          "PORT": "8080"  // Adicione outras variáveis de ambiente se necessário
+        },
+        "args": [],
+        "showLog": true,  // Exibe os logs no terminal de depuração
+        "logOutput": "debugger",  // Mostra logs do debugger
+        "stopOnEntry": false  // Defina se a execução deve parar na primeira linha
+      }
+    ]
+  }

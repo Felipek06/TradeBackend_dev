@@ -1,0 +1,94 @@
+definitions:
+  api.LoginRequest:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  api.UserRequest:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+info:
+  contact: {}
+  description: API do TradeBackend
+  title: TradeBackend API
+  version: "1.0"
+paths:
+  /api/login:
+    post:
+      consumes:
+      - application/json
+      description: Endpoint para autenticar usuário
+      parameters:
+      - description: Dados de login
+        in: body
+        name: loginRequest
+        required: true
+        schema:
+          $ref: '#/definitions/api.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Autentica usuário
+      tags:
+      - Users
+  /api/users:
+    post:
+      consumes:
+      - application/json
+      description: Endpoint para criar usuário
+      parameters:
+      - description: Dados do usuário
+        in: body
+        name: userRequest
+        required: true
+        schema:
+          $ref: '#/definitions/api.UserRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Cria um novo usuário
+      tags:
+      - Users
+swagger: "2.0"
